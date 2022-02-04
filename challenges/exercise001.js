@@ -1,54 +1,91 @@
-function capitalize(word) {
+function capitalize(word)
+{
   if (word === undefined) throw new Error("word is required");
-  // Add your code here!
+  if (word.length === 0) return word;
+  return word[0].toUpperCase() + word.substr(1);
 }
 
-function generateInitials(firstName, lastName) {
+function generateInitials(firstName, lastName)
+{
   if (firstName === undefined) throw new Error("firstName is required");
   if (lastName === undefined) throw new Error("lastName is required");
-  // Add your code here!
+  return firstName.substr(0,1)+'.'+lastName.substr(0,1);
 }
 
-function addVAT(originalPrice, vatRate) {
+function addVAT(originalPrice, vatRate)
+{
   if (originalPrice === undefined) throw new Error("originalPrice is requied");
   if (vatRate === undefined) throw new Error("vatRate is required");
-  // Add your code here!
+  return (Math.round((originalPrice*(1+vatRate/100)) * 100)/100);
 }
 
-function getSalePrice(originalPrice, reduction) {
+function getSalePrice(originalPrice, reduction)
+{
   if (originalPrice === undefined) throw new Error("originalPrice is required");
   if (reduction === undefined) throw new Error("reduction is required");
-  // Add your code here!
+  return (Math.round((originalPrice*(1-reduction/100)) * 100)/100);
 }
 
-function getMiddleCharacter(str) {
+function getMiddleCharacter(str)
+{
   if (str === undefined) throw new Error("str is required");
-  // Add your code here!
+  if (str.length % 2 === 0)
+  {
+    return str.substr((str.length/2)-1,2);
+  }
+  else
+  {
+    return str.substr((str.length/2),1);
+  }
 }
 
-function reverseWord(word) {
+function reverseWord(word)
+{
   if (word === undefined) throw new Error("word is required");
-  // Add your code here!
+  return word.split("").reverse().join("");
 }
 
-function reverseAllWords(words) {
+function reverseAllWords(words)
+{
   if (words === undefined) throw new Error("words is required");
-  // Add your code here!
+  let result=[];
+  words.forEach(word => result.push(reverseWord(word)));
+  return result;
 }
 
-function countLinuxUsers(users) {
+function countLinuxUsers(users)
+{
   if (users === undefined) throw new Error("users is required");
-  // Add your code here!
+  let count=0;
+  users.forEach(user => {if (user["type"] ==='Linux'){count++}});
+  return count;
 }
 
-function getMeanScore(scores) {
+function getMeanScore(scores)
+{
   if (scores === undefined) throw new Error("scores is required");
-  // Add your code here!
+  let total=0;
+  let i=0;
+  scores.forEach(score => {total=total+score;i++})
+  return (Math.round((total/i) * 100)/100);
 }
 
-function simpleFizzBuzz(n) {
+function simpleFizzBuzz(n)
+{
   if (n === undefined) throw new Error("n is required");
-  // Add your code here!
+  if ((n % 3 === 0) && (n % 5 === 0))
+  {
+    return 'fizzbuzz';
+  }
+  if (n % 3 === 0)
+  {
+    return 'fizz';
+  }
+  if (n % 5 === 0)
+  {
+    return 'buzz';
+  }
+  return n;
 }
 
 module.exports = {

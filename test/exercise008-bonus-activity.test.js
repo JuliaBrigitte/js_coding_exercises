@@ -19,6 +19,8 @@ describe("shoppingList", () => {
         const list = ["one apple", "two dozen organic eggs", "cucumber", "bread"];
         const newItem = ["earl grey tea"]
         expect(shoppingList(list, newItem)).toEqual(["one apple", "two dozen organic eggs", "cucumber", "bread", "earl grey tea"]);
+        expect(shoppingList(list, [])).toEqual(["one apple", "two dozen organic eggs", "cucumber", "bread"]);
+        expect(shoppingList([], [])).toEqual([]);
     });
 
     test("returns an empty list with new items added to it", () => {
@@ -32,6 +34,7 @@ describe("highestNumber", () => {
     test("returns the highest number", () => {
         const numbers = [12, 20, 18];
         expect(highestNumber(numbers)).toEqual(20);
+        expect(highestNumber([])).toEqual(null);
     });
 });
 
@@ -43,6 +46,7 @@ describe("splitThatString", () => {
     test("returns a string split up", () => {
         const string = "123";
         expect(splitThatString(string)).toEqual(["1", "2", "3"]);
+        expect(splitThatString("/()")).toEqual(["/", "(", ")"]);
     });
 });
 

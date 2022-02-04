@@ -49,6 +49,11 @@ describe("count1sand0s", () => {
       1: 3,
       0: 1
     });
+
+    expect(count1sand0s("9999")).toEqual({
+      1: 0,
+      0: 0
+    });
   });
 });
 
@@ -58,6 +63,7 @@ describe("reverseNumber", () => {
     expect(reverseNumber(104)).toBe(401);
     expect(reverseNumber(12345)).toBe(54321);
     expect(reverseNumber(100)).toBe(1); // No leading 0 necessary
+    expect(reverseNumber(null)).toBe(null);
   });
 });
 
@@ -65,6 +71,7 @@ describe("sumArrays", () => {
   test("returns the total of the numbers in all sub arrays", () => {
     const arrs = [[1, 2, 3], [6, 3, 1], [1], [9, 10], [3, 5]];
     expect(sumArrays(arrs)).toBe(44);
+    expect(sumArrays([])).toBe(0);
   });
 });
 
@@ -145,6 +152,8 @@ describe("getWordFrequencies", () => {
       hello: 1,
       world: 1
     });
+
+    expect(getWordFrequencies("")).toEqual({});
 
     expect(getWordFrequencies("the cat is hairier than the rat")).toEqual({
       the: 2,

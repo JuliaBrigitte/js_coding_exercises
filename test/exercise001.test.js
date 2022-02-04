@@ -16,6 +16,8 @@ describe("capitalize", () => {
     expect(capitalize("hello")).toBe("Hello");
     expect(capitalize("the quick fox")).toBe("The quick fox");
     expect(capitalize("oh no, bears!!!")).toBe("Oh no, bears!!!");
+    expect(capitalize("hi hi Ho hi")).toBe("Hi hi Ho hi");
+    expect(capitalize("")).toBe("");
   });
 
   test("does nothing if the string is already capitalized", () => {
@@ -26,6 +28,7 @@ describe("capitalize", () => {
 describe("generateInitials", () => {
   test("returns the initials of a firstname and surname", () => {
     expect(generateInitials("Frederic", "Bonneville")).toBe("F.B");
+    expect(generateInitials("Julia", "Branke")).toBe("J.B");
   });
 });
 
@@ -44,6 +47,10 @@ describe("addVAT", () => {
 
   test("adds a VAT of 0% to a price of 25", () => {
     expect(addVAT(25, 0)).toBe(25);
+  });
+
+  test("adds a VAT of 100% to a price of 12", () => {
+    expect(addVAT(12, 100)).toBe(24);
   });
 });
 
@@ -72,6 +79,10 @@ describe("getMiddleCharacter", () => {
 
   test("returns the middle 2 characters from a string of even length", () => {
     expect(getMiddleCharacter("help!!")).toBe("lp");
+  });
+
+  test("returns the char, if char is provided", () => {
+    expect(getMiddleCharacter("a")).toBe("a");
   });
 });
 
@@ -138,6 +149,10 @@ describe("getMeanScore", () => {
 describe("simpleFizzBuzz", () => {
   test("returns 'fizz' if the number is divisible by 3", () => {
     expect(simpleFizzBuzz(3)).toBe("fizz");
+  });
+
+  test("returns 'fizz' if the number is divisible by 3", () => {
+    expect(simpleFizzBuzz(33333333)).toBe("fizz");
   });
 
   test("returns 'buzz' if the number is divisible by 5", () => {

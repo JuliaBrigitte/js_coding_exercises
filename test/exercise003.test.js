@@ -23,6 +23,10 @@ describe("camelCaseWords", () => {
       "isHigherThanMinNumber"
     );
   });
+
+  test("camel cases empty string", () => {
+    expect(camelCaseWords([])).toBe("");
+  });
 });
 
 describe("getSquares", () => {
@@ -130,6 +134,7 @@ describe("checkIngredients", () => {
     ];
 
     expect(checkIngredients(menu, "dark chocolate")).toBe(true);
+    expect(checkIngredients(menu, "chickpeas")).toBe(true);
   });
 });
 
@@ -163,4 +168,13 @@ describe("duplicateNumbers", () => {
     arr2 = [3, 3, 3, 4, 5];
     expect(duplicateNumbers(arr1, arr2)).toEqual([3]);
   });
+
+  test("returns empty array", () => {
+    let arr1 = [];
+    let arr2 = [];
+    expect(duplicateNumbers(arr1, arr2)).toEqual([]);
+
+  });
+
+
 });

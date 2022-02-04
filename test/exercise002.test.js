@@ -22,6 +22,14 @@ describe("getFillings", () => {
     };
     expect(getFillings(sandwich2)).toEqual(["smoked salmon", "dill"]);
   });
+
+  const sandwich3 = {
+    bread: "Sunflowerseed",
+    fillings: ["brie", "salad"],
+    accompaniment: "wedges"
+  };
+  expect(getFillings(sandwich3)).toEqual(["brie", "salad"]);
+
 });
 
 describe("isFromManchester", () => {
@@ -87,6 +95,11 @@ describe("countSheep", () => {
   test("returns 2 if there are 2 sheep in the array", () => {
     const arr = ["dog", "sheep", "dog", "sheep", "chicken"];
     expect(countSheep(arr)).toBe(2);
+  });
+
+  test("returns 0 if there are 0 sheep in the array", () => {
+    const arr = [];
+    expect(countSheep(arr)).toBe(0);
   });
 
   test("returns 5 if there are 5 sheep in the array", () => {

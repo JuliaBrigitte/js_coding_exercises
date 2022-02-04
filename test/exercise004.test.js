@@ -43,6 +43,7 @@ describe("findVerbs", () => {
     ];
     expect(findVerbs(words)).toEqual(["to eat", "to sneak", "to squeak"]);
     expect(findVerbs(["bottle", "fish", "grain"])).toEqual([]);
+    expect(findVerbs([])).toEqual([]);
   });
 
   test("does not mistake words that include 'to' elsewhere", () => {
@@ -115,6 +116,8 @@ describe("getSquareRoots", () => {
   test("gets the square root of each number to 2 decimal places", () => {
     const nums = [36, 77, 12, 355, 92, 5];
     expect(getSquareRoots(nums)).toEqual([6, 8.77, 3.46, 18.84, 9.59, 2.24]);
+    const nums2 = [];
+    expect(getSquareRoots(nums2)).toEqual([]);
   });
 });
 
@@ -161,5 +164,8 @@ describe("getLongestSides", () => {
 
     const data2 = [[6, 7, 7], [9, 3, 9], [6, 3, 5], [6, 13, 12], [7, 12, 8]];
     expect(getLongestSides(data2)).toEqual([7, 9, 6, 13, 12]);
+
+    const dataEmpty = [];
+    expect(getLongestSides(dataEmpty)).toEqual([]);
   });
 });
