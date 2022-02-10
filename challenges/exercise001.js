@@ -49,25 +49,32 @@ function reverseAllWords(words)
 {
   if (words === undefined) throw new Error("words is required");
   let result=[];
-  words.forEach(word => result.push(reverseWord(word)));
+  words.map(function(word)
+  {
+    result.push(reverseWord(word))
+  });
   return result;
+
 }
 
 function countLinuxUsers(users)
 {
   if (users === undefined) throw new Error("users is required");
-  let count=0;
-  users.forEach(user => {if (user["type"] ==='Linux'){count++}});
-  return count;
+  let linuxUsers = users.filter(function (user) {
+    return user.type === "Linux";
+  });
+  return linuxUsers.length;
 }
 
 function getMeanScore(scores)
 {
   if (scores === undefined) throw new Error("scores is required");
   let total=0;
-  let i=0;
-  scores.forEach(score => {total=total+score;i++})
-  return (Math.round((total/i) * 100)/100);
+  total=scores.reduce(function (accumulator, score)
+  {
+    return accumulator + score
+  })
+  return (Math.round((total/scores.length) * 100)/100);
 }
 
 function simpleFizzBuzz(n)
