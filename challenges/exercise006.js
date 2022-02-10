@@ -4,18 +4,15 @@
  * @param {Array} arr
  * @returns {Number}
  */
-const sumMultiples = arr =>
-{
-  if (arr === undefined) throw new Error("arr is required");
-  let result=0;
-  arr.forEach(number =>
-  {
-    if ((number % 3 === 0) || (number % 5 === 0))
-    {
-      result=result+number;
-    }
-  })
-  return result;
+const sumMultiples = arr => {
+    if (arr === undefined) throw new Error("arr is required");
+    let result = 0;
+    arr.forEach(number => {
+        if ((number % 3 === 0) || (number % 5 === 0)) {
+            result = result + number;
+        }
+    })
+    return result;
 };
 
 /**
@@ -24,10 +21,9 @@ const sumMultiples = arr =>
  * @param {String} str
  * @returns {Boolean}
  */
-const isValidDNA = str =>
-{
-  if (str === undefined) throw new Error("str is required");
-  return !!str.match(/[CGTA]/);
+const isValidDNA = str => {
+    if (str === undefined) throw new Error("str is required");
+    return !!str.match(/[CGTA]/);
 
 };
 
@@ -37,17 +33,15 @@ const isValidDNA = str =>
  * @param {String} str
  * @returns {String}
  */
-const getComplementaryDNA = str =>
-{
-  if (str === undefined) throw new Error("str is required");
-  let arrayOfTwoChars=str.match(/.{1,2}/g);
-  for (let i=0; i<arrayOfTwoChars.length/2; i++)
-  {
-    let firstBit=arrayOfTwoChars[i];
-    arrayOfTwoChars[i]=arrayOfTwoChars[arrayOfTwoChars.length-1-i];
-    arrayOfTwoChars[arrayOfTwoChars.length-1-i]=firstBit;
-  }
-  return arrayOfTwoChars.join("");
+const getComplementaryDNA = str => {
+    if (str === undefined) throw new Error("str is required");
+    let arrayOfTwoChars = str.match(/.{1,2}/g);
+    for (let i = 0; i < arrayOfTwoChars.length / 2; i++) {
+        let firstBit = arrayOfTwoChars[i];
+        arrayOfTwoChars[i] = arrayOfTwoChars[arrayOfTwoChars.length - 1 - i];
+        arrayOfTwoChars[arrayOfTwoChars.length - 1 - i] = firstBit;
+    }
+    return arrayOfTwoChars.join("");
 };
 
 /**
@@ -55,25 +49,20 @@ const getComplementaryDNA = str =>
  * @param {Number} n
  * @returns {Boolean}
  */
-const isItPrime = n =>
-{
-  if (n === undefined) throw new Error("n is required");
-  if (n === 1)
-  {
-    return false;
-  }
-  if (n === 2)
-  {
-    return true;
-  }
-  for (let number=2; number < Math.sqrt(n); number++)
-  {
-    if (n % number === 0)
-    {
-      return false;
+const isItPrime = n => {
+    if (n === undefined) throw new Error("n is required");
+    if (n === 1) {
+        return false;
     }
-  }
-  return true;
+    if (n === 2) {
+        return true;
+    }
+    for (let number = 2; number < Math.sqrt(n); number++) {
+        if (n % number === 0) {
+            return false;
+        }
+    }
+    return true;
 };
 
 /**
@@ -87,22 +76,19 @@ const isItPrime = n =>
  * @param {Any} fill
  * @returns {Array}
  */
-const createMatrix = (n, fill) =>
-{
-  if (n === undefined) throw new Error("n is required");
-  if (fill === undefined) throw new Error("fill is required");
-  let returnArray=[];
-  let rowArray=[];
+const createMatrix = (n, fill) => {
+    if (n === undefined) throw new Error("n is required");
+    if (fill === undefined) throw new Error("fill is required");
+    let returnArray = [];
+    let rowArray = [];
 
-  for (let j=0; j<n; j++)
-  {
-    rowArray.push(fill);
-  }
-  for (let i=0; i<n; i++)
-  {
-    returnArray.push(rowArray);
-  }
-  return returnArray;
+    for (let j = 0; j < n; j++) {
+        rowArray.push(fill);
+    }
+    for (let i = 0; i < n; i++) {
+        returnArray.push(rowArray);
+    }
+    return returnArray;
 };
 
 /**
@@ -117,26 +103,23 @@ const createMatrix = (n, fill) =>
  * @param {String} day
  * @returns {Boolean}
  */
-const areWeCovered = (staff, day) =>
-{
-  if (staff === undefined) throw new Error("staff is required");
-  if (day === undefined) throw new Error("day is required");
-  let counter=0;
-  staff.forEach(staffMember =>
-  {
-    if (staffMember["rota"].includes(day))
-    {
-      counter++;
-    }
-  });
-  return (counter>2);
+const areWeCovered = (staff, day) => {
+    if (staff === undefined) throw new Error("staff is required");
+    if (day === undefined) throw new Error("day is required");
+    let counter = 0;
+    staff.forEach(staffMember => {
+        if (staffMember["rota"].includes(day)) {
+            counter++;
+        }
+    });
+    return (counter > 2);
 };
 
 module.exports = {
-  sumMultiples,
-  isValidDNA,
-  getComplementaryDNA,
-  isItPrime,
-  createMatrix,
-  areWeCovered
+    sumMultiples,
+    isValidDNA,
+    getComplementaryDNA,
+    isItPrime,
+    createMatrix,
+    areWeCovered
 };

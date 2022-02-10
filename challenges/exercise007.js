@@ -2,13 +2,12 @@
  * This function takes a number, e.g. 123 and returns the sum of all its digits, e.g 6 in this example.
  * @param {Number} n
  */
-const sumDigits = n =>
-{
-  if (n === undefined) throw new Error("n is required");
-  let sum=0;
-  let digitArray=Array.from(String(n), Number);
-  digitArray.forEach(digit => sum=sum+digit);
-  return sum;
+const sumDigits = n => {
+    if (n === undefined) throw new Error("n is required");
+    let sum = 0;
+    let digitArray = Array.from(String(n), Number);
+    digitArray.forEach(digit => sum = sum + digit);
+    return sum;
 };
 
 /**
@@ -20,15 +19,14 @@ const sumDigits = n =>
  * @param {Number} step
  */
 const createRange = (start, end, step) => {
-  if (start === undefined) throw new Error("start is required");
-  if (end === undefined) throw new Error("end is required");
-  let returnArray=[];
-  if (!step) step=1;
-  for (let arrayValue=start; arrayValue<end+1; arrayValue=arrayValue+step)
-  {
-    returnArray.push(arrayValue);
-  }
-  return returnArray;
+    if (start === undefined) throw new Error("start is required");
+    if (end === undefined) throw new Error("end is required");
+    let returnArray = [];
+    if (!step) step = 1;
+    for (let arrayValue = start; arrayValue < end + 1; arrayValue = arrayValue + step) {
+        returnArray.push(arrayValue);
+    }
+    return returnArray;
 };
 
 /**
@@ -62,30 +60,26 @@ const createRange = (start, end, step) => {
  * @param {String} date
  */
 const getScreentimeAlertList = (users, date) => {
-  if (users === undefined) throw new Error("users is required");
-  if (date === undefined) throw new Error("date is required");
-  let resultArray=[];
-  users.forEach(user =>
-  {
-    user["screenTime"].forEach( entry =>
-    {
-      let screenTime=0;
-      if (entry["date"] === date)
-      {
-        Object.values(entry["usage"]).forEach(
-          value => {
-            screenTime=screenTime+value;
-          }
-        );
-        if (screenTime > 100)
-        {
-          resultArray.push(user['username']);
+    if (users === undefined) throw new Error("users is required");
+    if (date === undefined) throw new Error("date is required");
+    let resultArray = [];
+    users.forEach(user => {
+            user["screenTime"].forEach(entry => {
+                let screenTime = 0;
+                if (entry["date"] === date) {
+                    Object.values(entry["usage"]).forEach(
+                        value => {
+                            screenTime = screenTime + value;
+                        }
+                    );
+                    if (screenTime > 100) {
+                        resultArray.push(user['username']);
+                    }
+                }
+            });
         }
-      }
-      });
-  }
-  );
-  return resultArray
+    );
+    return resultArray
 };
 
 /**
@@ -98,19 +92,17 @@ const getScreentimeAlertList = (users, date) => {
  * Hint: You will need to convert each hexadecimal value for R, G and B into its decimal equivalent!
  * @param {String} hexStr
  */
-const hexToRGB = hexStr =>
-{
-  if (hexStr === undefined) throw new Error("hexStr is required");
-  hexStr=hexStr.substring(1);
-  let arrayOfTwoChars=hexStr.match(/.{1,2}/g);
-  let rgbColor="rgb(";
-  arrayOfTwoChars.forEach(elem =>
-  {
-    rgbColor=rgbColor+parseInt(elem,16)+",";
-  })
-  rgbColor=rgbColor.substring(0, rgbColor.length - 1);
-  rgbColor=rgbColor+")";
-  return rgbColor;
+const hexToRGB = hexStr => {
+    if (hexStr === undefined) throw new Error("hexStr is required");
+    hexStr = hexStr.substring(1);
+    let arrayOfTwoChars = hexStr.match(/.{1,2}/g);
+    let rgbColor = "rgb(";
+    arrayOfTwoChars.forEach(elem => {
+        rgbColor = rgbColor + parseInt(elem, 16) + ",";
+    })
+    rgbColor = rgbColor.substring(0, rgbColor.length - 1);
+    rgbColor = rgbColor + ")";
+    return rgbColor;
 };
 
 /**
@@ -123,59 +115,50 @@ const hexToRGB = hexStr =>
  * The function should return "X" if player X has won, "0" if the player 0 has won, and null if there is currently no winner.
  * @param {Array} board
  */
-const findWinner = board =>
-{
-  if (board === undefined) throw new Error("board is required");
-  let winner=null;
-  board.forEach(row =>
-  {
-    let countX=0;
-    let count0=0;
-    //check rows
-    for (let i=0; i<board.length; i++)
-    {
-      if (row[i] === "X")
-      {
-        countX++;
-        count0=0;
-      }
-      if (row[0] === "0")
-      {
-        count0++;
-        countX=0;
-      }
-      if (count0 === 3) winner="0";
-      if (countX === 3) winner="X";
+const findWinner = board => {
+    if (board === undefined) throw new Error("board is required");
+    let winner = null;
+    board.forEach(row => {
+        let countX = 0;
+        let count0 = 0;
+        //check rows
+        for (let i = 0; i < board.length; i++) {
+            if (row[i] === "X") {
+                countX++;
+                count0 = 0;
+            }
+            if (row[0] === "0") {
+                count0++;
+                countX = 0;
+            }
+            if (count0 === 3) winner = "0";
+            if (countX === 3) winner = "X";
+        }
+    });
+    //check columns
+    for (let j = 0; j < board.length; j++) {
+        let countX = 0;
+        let count0 = 0;
+        for (let i = 0; i < board.length; i++) {
+            if (board[i][j] === "X") {
+                countX++;
+                count0 = 0;
+            }
+            if (board[i][j] === "0") {
+                count0++;
+                countX = 0;
+            }
+            if (count0 === 3) winner = "0";
+            if (countX === 3) winner = "X";
+        }
     }
-  });
-  //check columns
-  for (let j=0; j<board.length; j++)
-  {
-    let countX=0;
-    let count0=0;
-    for (let i=0; i<board.length; i++)
-    {
-      if (board[i][j] === "X")
-      {
-        countX++;
-        count0=0;
-      }
-      if (board[i][j] === "0")
-      {
-        count0++;
-        countX=0;
-      }
-      if (count0 === 3) winner="0";
-      if (countX === 3) winner="X";
-    }
-  }
-  return winner;
+    return winner;
 };
 
 module.exports = {
-  sumDigits,
-  createRange,
-  getScreentimeAlertList,
-  hexToRGB,
-  findWinner
+    sumDigits,
+    createRange,
+    getScreentimeAlertList,
+    hexToRGB,
+    findWinner
 };
