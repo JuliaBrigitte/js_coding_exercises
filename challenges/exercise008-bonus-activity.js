@@ -13,17 +13,15 @@ function shoppingList(list, newItem) {
 
 function highestNumber(numbers) {
     if (!numbers) throw new Error("numbers are required");
-    if (numbers.length > 0) {
+    if (numbers.length > 0)
         return Math.max(...numbers);
-    }
     return null;
 }
 
 function splitThatString(string) {
     if (!string) throw new Error("string is required");
-    if (string) {
+    if (string)
         return [...string];
-    }
     return [];
 }
 

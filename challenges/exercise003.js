@@ -17,11 +17,10 @@ function camelCaseWords(words) {
     let result = "";
     let counter = 1;
     words.forEach(word => {
-        if (counter === 1) {
+        if (counter === 1)
             result = word
-        } else {
+         else
             result = result + capitalize(word)
-        }
         counter++
     });
     return result;
@@ -39,9 +38,8 @@ function checkIngredients(menu, ingredient) {
     if (!ingredient) throw new Error("ingredient is required");
     let ingredientIncluded = false;
     menu.forEach(item => item["ingredients"].forEach(ingredientItem => {
-        if (ingredient === ingredientItem) {
+        if (ingredient === ingredientItem)
             ingredientIncluded = true;
-        }
     }))
     return ingredientIncluded;
 }

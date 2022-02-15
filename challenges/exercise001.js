@@ -24,11 +24,10 @@ function getSalePrice(originalPrice, reduction) {
 
 function getMiddleCharacter(str) {
     if (str === undefined) throw new Error("str is required");
-    if (str.length % 2 === 0) {
+    if (str.length % 2 === 0)
         return str.substr((str.length / 2) - 1, 2);
-    } else {
+    else
         return str.substr((str.length / 2), 1);
-    }
 }
 
 function reverseWord(word) {

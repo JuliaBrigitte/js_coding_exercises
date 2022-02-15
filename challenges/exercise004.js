@@ -2,9 +2,8 @@ function findSmallNums(nums) {
     if (!nums) throw new Error("nums is required");
     let returnArray = [];
     nums.forEach(number => {
-        if (number < 1) {
+        if (number < 1)
             returnArray.push(number)
-        }
     });
     return returnArray;
 }
@@ -29,9 +28,8 @@ function getCities(users) {
     if (!users) throw new Error("users is required");
     let returnArray = [];
     users.forEach(city => {
-        if (city["data"]["city"]["displayName"]) {
+        if (city["data"]["city"]["displayName"])
             returnArray.push(city["data"]["city"]["displayName"])
-        }
     });
     return returnArray
 }
@@ -40,9 +38,8 @@ function getSquareRoots(nums) {
     if (!nums) throw new Error("nums is required");
     let returnArray = [];
     nums.forEach(number => {
-        if (number) {
+        if (number)
             returnArray.push(Math.round((Math.sqrt(number)) * 100) / 100)
-        }
     });
     return returnArray;
 }
@@ -52,9 +49,8 @@ function findSentencesContaining(sentences, str) {
     if (!str) throw new Error("str is required");
     let returnArray = [];
     sentences.forEach(sentence => {
-        if (sentence.toLowerCase().includes(str.toLowerCase())) {
+        if (sentence.toLowerCase().includes(str.toLowerCase()))
             returnArray.push(sentence)
-        }
     });
     return returnArray;
 }

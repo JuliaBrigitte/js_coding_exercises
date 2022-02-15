@@ -83,11 +83,10 @@ const getWordFrequencies = str => {
     if (str) {
         let wordArray = str.toLowerCase().match(/\b[\w']+\b/g);
         wordArray.forEach(word => {
-            if (!resultHash[word]) {
+            if (!resultHash[word])
                 resultHash[word] = 1
-            } else {
+            else
                 resultHash[word] += 1
-            }
         });
     }
     return resultHash;
