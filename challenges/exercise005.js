@@ -23,10 +23,10 @@ const count1sand0s = str => {
     returnArray["1"] = 0;
     [...str].forEach(char => {
         if (char === "0") {
-            returnArray["0"] = returnArray["0"] + 1;
+            returnArray["0"] +=  1;
         }
         if (char === "1") {
-            returnArray["1"] = returnArray["1"] + 1;
+            returnArray["1"] += 1;
         }
     })
     return returnArray;
@@ -86,7 +86,7 @@ const getWordFrequencies = str => {
             if (!resultHash[word]) {
                 resultHash[word] = 1
             } else {
-                resultHash[word] = resultHash[word] + 1
+                resultHash[word] += 1
             }
         });
     }

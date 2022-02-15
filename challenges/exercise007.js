@@ -6,7 +6,7 @@ const sumDigits = n => {
     if (n === undefined) throw new Error("n is required");
     let sum = 0;
     let digitArray = Array.from(String(n), Number);
-    digitArray.forEach(digit => sum = sum + digit);
+    digitArray.forEach(digit => sum += digit);
     return sum;
 };
 
@@ -69,7 +69,7 @@ const getScreentimeAlertList = (users, date) => {
                 if (entry["date"] === date) {
                     Object.values(entry["usage"]).forEach(
                         value => {
-                            screenTime = screenTime + value;
+                            screenTime += value;
                         }
                     );
                     if (screenTime > 100) {

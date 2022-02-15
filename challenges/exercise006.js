@@ -9,7 +9,7 @@ const sumMultiples = arr => {
     let result = 0;
     arr.forEach(number => {
         if ((number % 3 === 0) || (number % 5 === 0)) {
-            result = result + number;
+            result += number;
         }
     })
     return result;
